@@ -1,0 +1,14 @@
+@mixin flexContainer($direction, $horizontal, $vertical, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $horizontal;
+  align-items: $vertical;
+  gap: $gap;
+}
+
+@mixin header($fontS, $color, $weight) {
+  font-size: $fontS;
+  color: $color;
+  font-weight: $weight;
+  text-align: center;
+}

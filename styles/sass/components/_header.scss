@@ -1,0 +1,14 @@
+@use "../parameters/parameters" as p;
+
+.main-header {
+  text-align: center;
+  font-size: p.$font-large;
+  font-weight: p.$extra-bold;
+  color: p.$white;
+  background-color: p.$light-blue;
+  margin-bottom: p.$large;
+}
+
+.main-header-h1 {
+  padding: p.$medium 0;
+}
