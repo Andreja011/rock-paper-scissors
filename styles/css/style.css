@@ -36,7 +36,7 @@ ul {
 .buttons {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   gap: 0;
   padding: 1.2rem 0;
@@ -70,6 +70,21 @@ ul {
 
 .main-header-h1 {
   padding: 3.2rem 0;
+}
+
+.section-player-scores-result {
+  width: 50%;
+  height: 6.4rem;
+  padding: 1.2rem;
+  border: 1px solid #1f2937;
+}
+
+.messages {
+  font-size: 2rem;
+  color: #3882f6;
+  font-style: 700;
+  text-align: center;
+  line-height: 1.3;
 }
 
 .section-player-scores-cards {

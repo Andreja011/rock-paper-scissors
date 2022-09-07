@@ -8,6 +8,7 @@ let computerScore = 0;
 const rock = document.querySelector(`.rock`);
 const paper = document.querySelector(`.paper`);
 const scissor = document.querySelector(`.scissor`);
+const messages = document.querySelector(`.section-player-scores-result`);
 
 rock.addEventListener("click", function () {
   console.log(playRound("rock", computerChoise()));
@@ -33,12 +34,16 @@ const playRound = function (player, computer) {
   // Rock
   if (player === "rock" && computer === "paper") {
     computerScore++;
-    return `You lose. Rock is weaker than ${computerCapitalize}. 
+    const playerLoseRock = `You lose. Rock is weaker than ${computerCapitalize}.
     Score is: Player ${playerScore}, Computer ${computerScore}.`;
+    messages.classList.add("messages");
+    return (messages.textContent = playerLoseRock);
   } else if (player === "rock" && computer === "scissor") {
     playerScore++;
-    return `You win. Rock is stronger than ${computerCapitalize}.
+    const playerWinRock = `You win. Rock is stronger than ${computerCapitalize}.
     Score is: Player ${playerScore}, Computer ${computerScore}.`;
+    messages.classList.add("messages");
+    return (messages.textContent = playerWinRock);
     // Paper
   } else if (player === "paper" && computer === "rock") {
     playerScore++;

@@ -5,7 +5,7 @@
 }
 
 .buttons {
-  @include p.flexContainer(row, space-evenly, center, 0);
+  @include p.flexContainer(row, space-around, center, 0);
   padding: p.$small 0;
 }
 

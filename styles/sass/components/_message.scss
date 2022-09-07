@@ -1,1 +1,16 @@
-@use "../parameters/parameters";
+@use "../parameters/parameters" as p;
+
+.section-player-scores-result {
+  width: 50%;
+  height: 6.4rem;
+  padding: p.$small;
+  border: 1px solid p.$dark-blue;
+}
+
+.messages {
+  font-size: p.$font-medium;
+  color: p.$light-blue;
+  font-style: p.$bold;
+  text-align: center;
+  line-height: 1.3;
+}
