@@ -1,1 +1,1 @@
-Trying to solve firs JavaScript project!
+Trying to solve first JavaScript project!

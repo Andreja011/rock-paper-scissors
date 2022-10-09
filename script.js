@@ -4,8 +4,8 @@
 let rounds = 0;
 let playerScore = 0;
 let computerScore = 0;
-let totalScore = playerScore + computerScore;
 
+const restart = document.querySelector(`.restart`);
 const rock = document.querySelector(`.rock`);
 const paper = document.querySelector(`.paper`);
 const scissor = document.querySelector(`.scissor`);
@@ -17,21 +17,62 @@ const scoreComputer = document.querySelector(
   `.section-player-scores-card-score.computer`
 );
 
-rock.addEventListener("click", function () {
-  playRound("rock", computerChoise());
-});
-paper.addEventListener("click", function () {
-  playRound("paper", computerChoise());
-});
-scissor.addEventListener("click", function () {
-  playRound("scissor", computerChoise());
+restart.addEventListener("click", function () {
+  rounds = 0;
+  playerScore = 0;
+  computerScore = 0;
+  messages.textContent = "";
+  scorePlayer.textContent = "";
+  scoreComputer.textContent = "";
 });
 
-const computerChoise = function () {
+rock.addEventListener("click", function () {
+  rounds++;
+  // console.log(rounds);
+  if (rounds < 5) {
+    return playRound("rock", computerChoise());
+  } else if (rounds === 5 && playerScore > computerScore) {
+    messages.textContent = `After ${rounds} rounds, You won!`;
+  } else if (rounds === 5 && playerScore < computerScore) {
+    messages.textContent = `After ${rounds} rounds, computer won!`;
+  } else if (rounds === 5 && playerScore === computerScore) {
+    messages.textContent = `After ${rounds} rounds is tie.`;
+  }
+});
+
+paper.addEventListener("click", function () {
+  rounds++;
+  // console.log(rounds);
+  if (rounds < 5) {
+    return playRound("paper", computerChoise());
+  } else if (rounds === 5 && playerScore > computerScore) {
+    messages.textContent = `After ${rounds} rounds, You won!`;
+  } else if (rounds === 5 && playerScore < computerScore) {
+    messages.textContent = `After ${rounds} rounds, computer won!`;
+  } else if (rounds === 5 && playerScore === computerScore) {
+    messages.textContent = `After ${rounds} rounds is tie.`;
+  }
+});
+
+scissor.addEventListener("click", function () {
+  rounds++;
+  // console.log(rounds);
+  if (rounds < 5) {
+    return playRound("scissor", computerChoise());
+  } else if (rounds === 5 && playerScore > computerScore) {
+    messages.textContent = `After ${rounds} rounds, player won!`;
+  } else if (rounds === 5 && playerScore < computerScore) {
+    messages.textContent = `After ${rounds} rounds, computer won!`;
+  } else if (rounds === 5 && playerScore === computerScore) {
+    messages.textContent = `After ${rounds} rounds is tie.`;
+  }
+});
+
+function computerChoise() {
   const items = ["Rock", "Paper", "Scissor"];
   const choise = items[Math.floor(Math.random() * items.length)].toLowerCase();
   return choise;
-};
+}
 
 // Play round
 const playRound = function (player, computer) {
@@ -103,7 +144,11 @@ const playRound = function (player, computer) {
       player.charAt(0).toUpperCase() + player.slice(1)
     } and ${computerCapitalize} are the same.`;
     messages.classList.add("messages");
-    return (messages.textContent = draw);
+    return (
+      (messages.textContent = draw),
+      (scorePlayer.textContent = playerScore),
+      (scoreComputer.textContent = computerScore)
+    );
   }
 };
 
